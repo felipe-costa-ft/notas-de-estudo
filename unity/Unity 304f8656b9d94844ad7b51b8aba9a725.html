@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unity</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="304f8656-b9d9-4844-ad7b-51b8aba9a725" class="page sans"><header><img class="page-cover-image" src="https://assetstorev1-prd-cdn.unity3d.com/key-image/dfb0d0f4-93ac-485a-9a37-0fa068969acc.png" style="object-position:center 61.21%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/5969/5969294.png"/></div><h1 class="page-title">Unity</h1><p class="page-description"></p></header><div class="page-body"><div id="32cdd0ab-6542-41f1-a26f-0bd748e7f8c3" class="column-list"><div id="c0fafda6-b1d4-4ebf-960a-77231b8562c9" style="width:50%" class="column"><h1 id="a7bff91b-b248-4b2e-9b50-53367e7dee71" class="">Editor</h1><hr id="41fa4aac-532d-4e5a-973f-85aca55e222d"/><figure id="48f99bd6-8bb9-4769-bf2f-85d8f4a58c6d" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Mudando%20layout%20do%20editor%2048f99bd68bb94769bf2f85d8f4a58c6d.html"><span class="icon">🪛</span>Mudando layout do editor</a></figure><figure id="c3930548-516a-4ba2-a334-e84df5f2361d" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Overview%20do%20Editor%20c3930548516a4ba2a334e84df5f2361d.html"><span class="icon">🎨</span>Overview do Editor</a></figure><figure id="69b80a46-60c0-4baf-86db-36e0de1ba37a" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Configurando%20VS%20Code%20no%20Unity%2069b80a4660c04baf86db36e0de1ba37a.html"><span class="icon">⚙️</span>Configurando VS Code no Unity</a></figure><figure id="0f202765-98f4-4aed-8398-d6eae5d2871a" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Escala%20dos%20Assets%200f20276598f44aed8398d6eae5d2871a.html"><span class="icon">↕️</span>Escala dos Assets</a></figure><h1 id="4f2677a8-1746-432b-bb3c-954a4c5f70b0" class="">Objects</h1><hr id="19da8f24-6e41-4e91-8a4a-b8589b4fc0ad"/><figure id="f35d68c1-2e4d-4fe7-aa82-89e7a46710d4" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20Sprite%20Shapes%20f35d68c12e4d4fe7aa8289e7a46710d4.html"><span class="icon">🔷</span>Usando Sprite Shapes</a></figure><figure id="e9c8a5b7-943a-4435-b58e-c09763f86d0e" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Cinemachine%20e9c8a5b7943a4435b58ec09763f86d0e.html"><span class="icon">🎦</span>Cinemachine</a></figure><figure id="902f7ca1-cbad-4a3e-8cf4-7d50c5260a21" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Criando%20Particle%20Effects%20902f7ca1cbad4a3e8cf47d50c5260a21.html"><span class="icon">🎊</span>Criando Particle Effects</a></figure><h1 id="3af11c55-ac1a-411f-ac34-b731b5b379d5" class="">Components</h1><hr id="ecd62ad1-13aa-447f-a372-fac9386a392c"/><figure id="dead3123-fc54-480d-b0b7-4312f3965fd1" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Colliders%20e%20RigidBody%20dead3123fc54480db0b74312f3965fd1.html"><span class="icon">🦴</span>Colliders e RigidBody</a></figure><figure id="4905baec-4735-4008-ac89-b413d3acbf0c" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20Edge%20Collider%204905baec47354008ac89b413d3acbf0c.html"><span class="icon">🎿</span>Usando Edge Collider</a></figure><figure id="a9a4481d-775d-4408-94bb-f9992321696f" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Suface%20Effector%202D%20a9a4481d775d440894bbf9992321696f.html"><span class="icon">🏄🏻</span>Suface Effector 2D</a></figure><p id="8166b30c-db73-4434-9c2d-9751fa425682" class="">
+</p></div><div id="93f9eb4c-edc6-4719-9411-c7490d19795f" style="width:50%" class="column"><h1 id="edbcf8fa-57a4-46a9-966a-86a9c552f9af" class="">Programação</h1><hr id="a5a7c7f1-2efb-490d-aecb-27f74b1f8c98"/><figure id="6bb1b462-2a14-4e79-9cc6-4e0b690fa459" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Criando%20um%20script%20e%20Linkando%20com%20objeto%206bb1b4622a144e799cc64e0b690fa459.html"><span class="icon">🛠️</span>Criando um script e Linkando com objeto</a></figure><figure id="476dafae-bd23-4ee7-8540-873081444dca" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Imprimir%20no%20console%20476dafaebd234ee78540873081444dca.html"><span class="icon">🖨️</span>Imprimir no console</a></figure><figure id="6905d63b-8bfe-4568-9c21-13dcdb0dea9f" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Me%CC%81todos%20Start%20e%20Update%206905d63b8bfe45689c2113dcdb0dea9f.html"><span class="icon">📝</span>Métodos Start e Update</a></figure><figure id="762dccb8-100b-4b41-9d00-dd2e4ca9fa55" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Girando%20o%20objeto%20762dccb8100b4b419d00dd2e4ca9fa55.html"><span class="icon">🔁</span>Girando o objeto</a></figure><figure id="53a60059-c38e-4b89-a96b-1a62188672ad" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Movendo%20o%20objeto%2053a60059c38e4b89a96b1a62188672ad.html"><span class="icon">➡️</span>Movendo o objeto</a></figure><figure id="1fad7095-d580-4fda-835c-ecaf4632ae2a" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Varia%CC%81veis%201fad7095d5804fda835cecaf4632ae2a.html"><span class="icon">🗃️</span>Variáveis</a></figure><figure id="706dddd2-79f0-4445-be71-0792c66ca7c7" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20SerializeField%20706dddd279f04445be710792c66ca7c7.html"><span class="icon">📤</span>Usando SerializeField</a></figure><figure id="21c1be29-8d35-4c1c-afd1-3071a8991244" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Unity%20old%20Input%20System%2021c1be298d354c1cafd13071a8991244.html"><span class="icon">🔳</span>Unity old Input System</a></figure><figure id="84f8a65d-25c1-4599-9f74-a64930494c8a" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20Time%20deltaTome%2084f8a65d25c145999f74a64930494c8a.html"><span class="icon">🕐</span>Usando Time.deltaTome</a></figure><figure id="41279fda-dd62-4d54-9f9d-7c59cd49ff17" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20OnCollisionEnter2D%2041279fdadd624d549f9d7c59cd49ff17.html"><span class="icon">👊🏻</span>Usando OnCollisionEnter2D</a></figure><figure id="664398df-da11-4450-9823-b163bf512501" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20OnTriggerEnter2D%20664398dfda1144509823b163bf512501.html"><span class="icon">🏁</span>Usando OnTriggerEnter2D</a></figure><figure id="5fbf0733-5d7f-4c7f-8665-424d1f04d5dd" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Criando%20uma%20refere%CC%82ncia%205fbf07335d7f4c7f8665424d1f04d5dd.html"><span class="icon">📤</span>Criando uma referência</a></figure><figure id="21fe19e9-c446-47b0-8cca-c947d4187da1" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Tags%2021fe19e9c44647b08ccac947d4187da1.html"><span class="icon">🏷️</span>Tags</a></figure><figure id="3e763e36-0e9e-4418-8ff8-f2ee0121f61e" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Destruindo%20objetos%203e763e360e9e44188ff8f2ee0121f61e.html"><span class="icon">💥</span>Destruindo objetos</a></figure><figure id="8e383501-1296-44f6-8ddb-f548b4e1510e" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20GetComponent%208e383501129644f68ddbf548b4e1510e.html"><span class="icon">🧩</span>Usando GetComponent</a></figure><figure id="ca325d51-b0b0-4f95-821e-3596c06250fa" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20AddTorque%20ca325d51b0b04f95821e3596c06250fa.html"><span class="icon">🔄</span>Usando AddTorque</a></figure><figure id="38ec71fa-e802-42c0-8fbe-71400524f864" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20LoadScene%2038ec71fae80242c08fbe71400524f864.html"><span class="icon">🎥</span>Usando LoadScene</a></figure><figure id="2e3aeec1-ad72-4bd1-a6fe-e7c2b98f4c57" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20Invoke%202e3aeec1ad724bd1a6fee7c2b98f4c57.html"><span class="icon">🏃🏻</span>Usando Invoke</a></figure><figure id="48522f21-f8bd-46ce-9443-bcc6e027b4b5" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20FindObjectOfType%2048522f21f8bd46ce9443bcc6e027b4b5.html"><span class="icon">🔎</span>Usando FindObjectOfType</a></figure><figure id="707db637-c274-4a9c-977e-a301cd6aec8b" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Usando%20On%20CollisionExit2D%20707db637c2744a9c977ea301cd6aec8b.html"><span class="icon">✊🏻</span>Usando On CollisionExit2D</a></figure><figure id="3ec4b652-7c7f-4614-8d40-2693eeed4b10" class="link-to-page"><a href="Unity%20304f8656b9d94844ad7b51b8aba9a725/Reproduzindo%20sons%203ec4b6527c7f46148d402693eeed4b10.html"><span class="icon">🔊</span>Reproduzindo sons</a></figure></div></div><p id="658ee812-20ab-41e8-b923-61f4eaea9049" class="">
+</p></div></article></body></html>
